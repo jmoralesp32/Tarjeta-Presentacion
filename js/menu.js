@@ -45,26 +45,23 @@ function openWaze() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     if (isMobile) {
-        // Redirigir a la app
         window.location = appUrl;
 
-        // Si la app no existe, abrir la web después de 2 segundos
         setTimeout(() => {
             window.location = webUrl;
         }, 2000);
     } else {
-        // En escritorio abrir la web directamente
         window.open(webUrl, '_blank');
     }
 }
 
 //Gmail
-function openMail() {
+function openGmail() {
     const email = "jmoralesconsorciolegalmp@gmail.com";
     const subject = encodeURIComponent("Consulta legal");
     const body = encodeURIComponent("Estimado Licenciado, ...");
 
-    const appUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+    const appUrl = `googlegmail:///co?to=${email}&subject=${subject}&body=${body}`;
 
     const webUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
 
@@ -74,7 +71,7 @@ function openMail() {
         window.location = appUrl;
 
         setTimeout(() => {
-            window.open(webUrl, "_blank");
+            window.location = webUrl;
         }, 2000);
     } else {
         window.open(webUrl, "_blank");
